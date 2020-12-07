@@ -24,8 +24,8 @@ namespace _2020
             var numOfPuzzle = int.Parse(args[1]);
             var path = 
                 args.Length == 3 ? 
-                    Path.Combine(Root, args[2]) :
-                    Path.Combine(new[] { Root, "days", args[0], "input.txt" });
+                    Path.Combine(Root, "days", args[0], args[2]) :
+                    Path.Combine(Root, "days", args[0], "input.txt");
 
 
             var methodName = string.Empty;
@@ -55,7 +55,7 @@ namespace _2020
             var solver = (ISolver)Activator.CreateInstance(solverType);
 
             Console.WriteLine("Calculating...");
-            var solution = (string)solverType.GetMethod(methodName).Invoke(solver, new [] { path });
+            var solution = (string)solverType.GetMethod(methodName).Invoke(solver, new[] { path });
 
             Console.WriteLine($"Solution: {solution}");
             Clipboard.SetText(solution);
