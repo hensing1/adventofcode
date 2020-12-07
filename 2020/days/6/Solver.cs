@@ -60,7 +60,7 @@ namespace _2020.days._6
             string result = vals[0];
             for (var i = 1; i < vals.Length; i++)
             {
-                result = new String(result.Intersect(vals[1]).ToArray());
+                result = new String(result.Intersect(vals[i]).ToArray());
                 if (result == String.Empty)
                     break;
             }

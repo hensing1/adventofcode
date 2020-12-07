@@ -15,3 +15,6 @@ C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.pdb
 C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\HenrysDevLib.dll
 C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\HenrysDevLib.pdb
 C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.csproj.CopyComplete
+C:\Users\henning.lehmann\source\repos\adventofcode\2020\bin\Debug\HenrysDevLib.dll
+C:\Users\henning.lehmann\source\repos\adventofcode\2020\bin\Debug\HenrysDevLib.pdb
+C:\Users\henning.lehmann\source\repos\adventofcode\2020\obj\Debug\2020.csproj.CopyComplete
