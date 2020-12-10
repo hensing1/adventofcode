@@ -5,7 +5,7 @@ using _2020.Utility;
 using HenrysDevLib.Extensions;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._4
+namespace _2020.days._04
 {
     [ProblemDate(4)]
     class Solver : ISolver

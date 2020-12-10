@@ -3,7 +3,7 @@ using System.Linq;
 using _2020.Utility;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._5
+namespace _2020.days._05
 {
     [ProblemDate(5)]
     class Solver : ISolver

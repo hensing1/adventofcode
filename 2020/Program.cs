@@ -16,7 +16,8 @@ namespace _2020
         {
             if (args.Length < 2 || args.Length > 3)
             {
-                Console.WriteLine("Usage: \n\t[# of Day] [# of Puzzle (1 or 2)] [Input file path (optional)]");
+                Console.WriteLine("Required args: \n\t[# of Day] [# of Puzzle (1 or 2)] [Input file name (optional, must be contained in folder corresponding with # of Day)]");
+                Console.ReadLine();
                 return;
             }
 
@@ -39,6 +40,7 @@ namespace _2020
                     break;
                 default:
                     Console.WriteLine("2nd argument (# of Puzzle) must either be 1 or 2");
+                    Console.ReadLine();
                     return;
             }
 

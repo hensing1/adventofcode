@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using _2020.Utility;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._7
+namespace _2020.days._07
 {
     [ProblemDate(7)]
     class Solver : ISolver
@@ -23,7 +20,9 @@ namespace _2020.days._7
 
         public string SolveSecond(string input)
         {
-            throw new NotImplementedException();
+            string[] lines = System.IO.File.ReadAllLines(input);
+            Dictionary<string, List<(int, string)>> bags = ParseLines(lines);
+            return GetNumberOfContainedBags("shiny gold", bags).ToString();
         }
 
         private Dictionary<string, List<(int, string)>> ParseLines(string[] lines)
@@ -62,6 +61,15 @@ namespace _2020.days._7
                 containingBags = containingBags.Union(GetContainingBags(containingBag, bags)).ToList();
 
             return containingBags;
+        }
+
+        private int GetNumberOfContainedBags(string containingBag, in Dictionary<string, List<(int, string)>> bags)
+        {
+            var sum = 0;
+            foreach ((int count, string containedBag) in bags[containingBag])
+                sum += count + (count * GetNumberOfContainedBags(containedBag, bags));
+
+            return sum;
         }
     }
 }

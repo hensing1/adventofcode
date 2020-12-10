@@ -1,7 +1,7 @@
 ﻿using _2020.Utility;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._1
+namespace _2020.days._01
 {
     [ProblemDate(1)]
     class Solver : ISolver

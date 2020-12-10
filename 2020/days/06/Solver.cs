@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using _2020.Utility;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._6
+namespace _2020.days._06
 {
     [ProblemDate(6)]
     class Solver : ISolver

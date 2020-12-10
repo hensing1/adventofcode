@@ -47,13 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="days\1\Solver.cs" />
-    <Compile Include="days\2\Solver.cs" />
-    <Compile Include="days\3\Solver.cs" />
-    <Compile Include="days\4\Solver.cs" />
-    <Compile Include="days\5\Solver.cs" />
-    <Compile Include="days\6\Solver.cs" />
-    <Compile Include="days\7\Solver.cs" />
+    <Compile Include="days\02\Solver.cs" />
+    <Compile Include="days\03\Solver.cs" />
+    <Compile Include="days\04\Solver.cs" />
+    <Compile Include="days\05\Solver.cs" />
+    <Compile Include="days\06\Solver.cs" />
+    <Compile Include="days\07\Solver.cs" />
+    <Compile Include="days\08\Solver.cs" />
+    <Compile Include="days\09\Solver.cs" />
+    <Compile Include="days\01\Solver.cs" />
+    <Compile Include="days\10\Solver.cs" />
     <Compile Include="Utility\Attributes.cs" />
     <Compile Include="Utility\ISolver.cs" />
     <Compile Include="Program.cs" />
@@ -63,14 +66,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="days\1\input.txt" />
-    <Content Include="days\2\input.txt" />
-    <Content Include="days\3\input.txt" />
-    <Content Include="days\4\input.txt" />
-    <Content Include="days\5\input.txt" />
-    <Content Include="days\6\input.txt" />
-    <Content Include="days\6\test.txt" />
-    <Content Include="days\7\input.txt" />
+    <Content Include="days\01\input.txt" />
+    <Content Include="days\02\input.txt" />
+    <Content Include="days\03\input.txt" />
+    <Content Include="days\04\input.txt" />
+    <Content Include="days\05\input.txt" />
+    <Content Include="days\06\input.txt" />
+    <Content Include="days\06\test.txt" />
+    <Content Include="days\07\input.txt" />
+    <Content Include="days\07\test.txt" />
+    <Content Include="days\08\input.txt" />
+    <Content Include="days\09\input.txt" />
+    <Content Include="days\10\input.txt" />
+    <Content Include="Utility\SolverTemplate.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

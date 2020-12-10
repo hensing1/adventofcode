@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using static _2020.Utility.Attributes;
 
-namespace _2020.days._2
+namespace _2020.days._02
 {
     [ProblemDate(2)]
     class Solver : ISolver
