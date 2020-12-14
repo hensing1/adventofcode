@@ -58,6 +58,7 @@
     <Compile Include="days\01\Solver.cs" />
     <Compile Include="days\10\Solver.cs" />
     <Compile Include="Utility\Attributes.cs" />
+    <Compile Include="Utility\InvalidInputException.cs" />
     <Compile Include="Utility\ISolver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
