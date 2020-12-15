@@ -8,7 +8,6 @@ C:\Users\henning.lehmann\source\repos\adventofcode\2020\obj\Debug\2020.pdb
 C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.exe.config
 C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.exe
 C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.pdb
-C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.csprojAssemblyReference.cache
 C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.csproj.CoreCompileInputs.cache
 C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.exe
 C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.pdb
