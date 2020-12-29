@@ -53,13 +53,16 @@ namespace _2020.days._14
                     case "mem":
                         var index = long.Parse(Regex.Match(line, @"^[a-z]+\[(\d+)\]").Groups[1].Value);
                         var value = long.Parse(Regex.Match(line, @"^.+ = (\d+)").Groups[1].Value);
-                        
+
                         if (version == 1)
                             memory[index] = ApplyMask_V1(value, mask);
-                        
+
                         else if (version == 2)
-                            foreach (var newIndex in ApplyMask_V2(value, mask))
+                        {
+                            var indices = ApplyMask_V2(index, mask);
+                            foreach (var newIndex in indices)
                                 memory[newIndex] = value;
+                        }
 
                         break;
                     default:
@@ -105,9 +108,36 @@ namespace _2020.days._14
 
         private List<long> ApplyMask_V2(long value, (long, long) mask)
         {
-            value = ApplyMask_V1(value, mask);
-            (long floating, _) = mask;
-            throw new NotImplementedException();
+            var indices = new LinkedList<long>();
+            (long floating, long binary) = mask;
+            value |= binary;
+            value &= ~floating; // set all floating bits to zero
+            indices.AddLast(value);
+
+            uint iterator = 0;
+            long floatingIterator = 0;
+            while (floatingIterator < floating)
+            {
+                floatingIterator = Expand(++iterator, floating);
+                indices.AddLast(value | floatingIterator);
+            }
+
+            return indices.ToList();
+        }
+
+        private long Expand(uint index, long floating)
+        {
+            long result = 0;
+            for (int indexIterator = 0, floatingIterator = 0; (long)1 << floatingIterator <= floating; floatingIterator++)
+            {
+                if (((floating >> floatingIterator) & 1) == 1)
+                {
+                    long resultBit = (index >> indexIterator) & 1;
+                    result |= resultBit << floatingIterator;
+                    indexIterator++;
+                }
+            }
+            return result;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -55,13 +56,18 @@ namespace _2020
             ).Single();
             
             var solver = (ISolver)Activator.CreateInstance(solverType);
+            Stopwatch sw = new Stopwatch();
 
             Console.WriteLine("Calculating...");
+            sw.Start();
             var solution = (string)solverType.GetMethod(methodName).Invoke(solver, new[] { path });
+            sw.Stop();
 
             Console.WriteLine($"Solution: {solution}");
+            Console.WriteLine($"Time elapsed: {sw.ElapsedMilliseconds}ms");
             Clipboard.SetText(solution);
-            Console.WriteLine("Copied to clipboard");
+            Console.WriteLine("Solution copied to clipboard.");
+            Console.WriteLine("Press enter to exit.");
             Console.ReadLine();
         }
     }
