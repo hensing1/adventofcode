@@ -106,6 +106,8 @@
     <Compile Include="days\19\Solver.cs" />
     <Content Include="days\19\test2.txt" />
     <Content Include="days\19\test.txt" />
+    <Compile Include="days\20\Solver.cs" />
+    <Content Include="days\20\input.txt" />
     <Content Include="Utility\SolverTemplate.txt" />
   </ItemGroup>
   <ItemGroup />
