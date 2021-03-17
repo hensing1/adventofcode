@@ -112,6 +112,9 @@
     <Compile Include="days\21\Solver.cs" />
     <Content Include="days\21\input.txt" />
     <Content Include="days\21\test.txt" />
+    <Content Include="days\22\input.txt" />
+    <Compile Include="days\22\Solver.cs" />
+    <Content Include="days\22\test.txt" />
     <Content Include="Utility\SolverTemplate.txt" />
   </ItemGroup>
   <ItemGroup />

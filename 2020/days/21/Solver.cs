@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using _2020.Utility;
 using static _2020.Utility.Attributes;
 
@@ -20,16 +18,7 @@ namespace _2020.days._21
             var ingrAllergMap = new Dictionary<string, List<int>>();
             var foods = new List<(HashSet<string> Ingredients, List<int> Allergens)>();
 
-            ReadInput(lines, out ingredients, out ingrAllergMap, out foods);
-
-            foreach (var food in foods)
-            {
-                var allergFreeIngrs = new HashSet<string>(ingredients);
-                allergFreeIngrs.ExceptWith(food.Ingredients);
-                foreach (string ingredient in allergFreeIngrs)
-                    foreach (int allergen in food.Allergens)
-                        ingrAllergMap[ingredient].Remove(allergen);
-            }
+            ParseInput(lines, out ingredients, out ingrAllergMap, out foods);
 
             string[] safeIngredients = ingredients.Where(ingredient => ingrAllergMap[ingredient].Count == 0).ToArray();
 
@@ -49,16 +38,7 @@ namespace _2020.days._21
             var foods = new List<(HashSet<string> Ingredients, List<int> Allergens)>();
             var allergens = new List<string>();
 
-            ReadInput(lines, out ingredients, out ingrAllergMap, out foods, out allergens);
-
-            foreach (var food in foods)
-            {
-                var allergFreeIngrs = new HashSet<string>(ingredients);
-                allergFreeIngrs.ExceptWith(food.Ingredients);
-                foreach (string ingredient in allergFreeIngrs)
-                    foreach (int allergen in food.Allergens)
-                        ingrAllergMap[ingredient].Remove(allergen);
-            };
+            ParseInput(lines, out ingredients, out ingrAllergMap, out foods, out allergens);
 
             List<string> unsafeIngredients = ingredients.Where(ingredient => ingrAllergMap[ingredient].Count > 0).ToList();
 
@@ -66,7 +46,7 @@ namespace _2020.days._21
             while (unsafeIngredients.Count() > 0)
             {
                 string solvedIngredient = unsafeIngredients.Single(ing => ingrAllergMap[ing].Count == 1);
-                int solvedAllergIndex = ingrAllergMap[solvedIngredient].First();
+                int solvedAllergIndex = ingrAllergMap[solvedIngredient][0];
                 string solvedAllergen = allergens[solvedAllergIndex];
 
                 unsafeIngredients.Remove(solvedIngredient);
@@ -79,17 +59,16 @@ namespace _2020.days._21
             return String.Join(",", orderedIngrs);
         }
 
-        private void ReadInput(string[] lines, out HashSet<string> ingredients, out Dictionary<string, List<int>> ingrAllergMap, out List<(HashSet<string>, List<int>)> foods)
+        private void ParseInput(string[] lines, out HashSet<string> ingredients, out Dictionary<string, List<int>> ingrAllergMap, out List<(HashSet<string>, List<int>)> foods)
         {
-            var allergens = new List<string>();
-            ReadInput(lines, out ingredients, out ingrAllergMap, out foods, out allergens);
+            ParseInput(lines, out ingredients, out ingrAllergMap, out foods, out List<string> allergens);
         }
-        private void ReadInput(string[] lines, out HashSet<string> ingredients, out Dictionary<string, List<int>> ingrAllergMap, 
-                                out List<(HashSet<string>, List<int>)> foods, out List<string> allergens)
+        private void ParseInput(string[] lines, out HashSet<string> ingredients, out Dictionary<string, List<int>> ingrAllergMap, 
+                                out List<(HashSet<string> Ingredients, List<int> Allergens)> foods, out List<string> allergens)
         {
             ingredients = new HashSet<string>();
             ingrAllergMap = new Dictionary<string, List<int>>();
-            foods = new List<(HashSet<string> ingredients, List<int> allergens)>();
+            foods = new List<(HashSet<string>, List<int>)>();
             allergens = new List<string>();
 
             foreach (string line in lines)
@@ -123,6 +102,15 @@ namespace _2020.days._21
             var allAllergenIndeces = Enumerable.Range(0, allergens.Count).ToList();
             foreach (string ingredient in ingredients)
                 ingrAllergMap.Add(ingredient, new List<int>(allAllergenIndeces));
+
+            foreach (var food in foods)
+            {
+                var allergFreeIngrs = new HashSet<string>(ingredients);
+                allergFreeIngrs.ExceptWith(food.Ingredients);
+                foreach (string ingredient in allergFreeIngrs)
+                    foreach (int allergen in food.Allergens)
+                        ingrAllergMap[ingredient].Remove(allergen); // any ingredient not listed in this food cannot have the allergens listed in this food
+            }
         }
     }
 }
