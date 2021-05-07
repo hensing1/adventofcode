@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using _2020.Utility;
-using HenrysDevLib.Extensions;
 using static _2020.Utility.Attributes;
 
 namespace _2020.days._04

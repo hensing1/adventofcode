@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using _2020.Utility;
 using static _2020.Utility.Attributes;
-using HenrysDevLib.Extensions;
 
 namespace _2020.days._11
 {

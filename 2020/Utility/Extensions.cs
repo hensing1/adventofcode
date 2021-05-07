@@ -8,6 +8,11 @@ namespace _2020.Utility
 {
     static class Extensions
     {
+        public static bool IsInRangeOf<T>(this T val, T lower, T upper) where T : IComparable
+        {
+            return val.CompareTo(lower) >= 0 && val.CompareTo(upper) <= 0;
+        }
+
         public static bool ContentEquals<T>(this T[,] array, T[,] other)
         {
             if (array is null && other is null)

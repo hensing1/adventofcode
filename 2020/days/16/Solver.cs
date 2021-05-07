@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using _2020.Utility;
-using HenrysDevLib.Extensions;
 using static _2020.Utility.Attributes;
 
 namespace _2020.days._16
@@ -219,8 +216,8 @@ namespace _2020.days._16
                 {
                     for (int ticketNum = 0; ticketNum < validTickets.Count; ticketNum++)
                     {
-                        if (validTickets[ticketNum][field].IsNotInRangeOf(range.Value.Item1.Lower, range.Value.Item1.Upper) &&
-                            validTickets[ticketNum][field].IsNotInRangeOf(range.Value.Item2.Lower, range.Value.Item2.Upper))
+                        if (!validTickets[ticketNum][field].IsInRangeOf(range.Value.Item1.Lower, range.Value.Item1.Upper) &&
+                            !validTickets[ticketNum][field].IsInRangeOf(range.Value.Item2.Lower, range.Value.Item2.Upper))
                             goto skipField; //sorry
                     }
                     fittingFields[range.Key][field] = true;

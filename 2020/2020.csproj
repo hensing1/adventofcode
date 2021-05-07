@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HenrysDevLib">
-      <HintPath>..\..\HenrysDevLib\HenrysDevLib\bin\Debug\netstandard2.0\HenrysDevLib.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
