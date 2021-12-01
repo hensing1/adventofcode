@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using adventofcode.Utility;
+﻿using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
 namespace adventofcode._2021._01
@@ -13,14 +8,49 @@ namespace adventofcode._2021._01
     {
         public string SolveFirst(string input)
         {
-            string[] lines = System.IO.File.ReadAllLines(input);
-            throw new NotImplementedException();
+            int[] measurements = GetMeasurements(input);
+
+            int count = 0;
+            int prevMeasurement = measurements[0];
+
+            for (int i = 1; i < measurements.Length; i++)
+            {
+                if (measurements[i] > prevMeasurement)
+                    count++;
+
+                prevMeasurement = measurements[i];
+            }
+
+            return count.ToString();
         }
 
         public string SolveSecond(string input)
         {
+            int[] measurements = GetMeasurements(input);
+
+            int count = 0;
+
+            for (int i = 3; i < measurements.Length; i++)
+            {
+                int lastOfOldWindow = measurements[i - 3];
+                int firstOfNewWindow = measurements[i];
+
+                if (firstOfNewWindow > lastOfOldWindow)
+                    count++;
+            }
+
+            return count.ToString();
+        }
+
+        private static int[] GetMeasurements(string input)
+        {
             string[] lines = System.IO.File.ReadAllLines(input);
-            throw new NotImplementedException();
+
+            var measurements = new int[lines.Length];
+            for (int i = 0; i < lines.Length; i++)
+                measurements[i] = int.Parse(lines[i]);
+
+            return measurements;
         }
     }
 }
