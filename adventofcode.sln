@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2020", "2020\2020.csproj", "{E895D9F4-3283-4B0D-BF6E-5BACB77CDE68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adventofcode", "adventofcode\adventofcode.csproj", "{E895D9F4-3283-4B0D-BF6E-5BACB77CDE68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

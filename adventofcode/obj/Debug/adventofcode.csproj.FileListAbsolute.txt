@@ -1,0 +1,14 @@
+C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.exe.config
+C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.exe
+C:\Users\user6624\source\repos\adventofcode\2020\bin\Debug\2020.pdb
+C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\adventofcode.csprojAssemblyReference.cache
+C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\adventofcode.csproj.CoreCompileInputs.cache
+C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.exe
+C:\Users\user6624\source\repos\adventofcode\2020\obj\Debug\2020.pdb
+C:\Users\user6624\source\repos\adventofcode\adventofcode\bin\Debug\adventofcode.exe.config
+C:\Users\user6624\source\repos\adventofcode\adventofcode\bin\Debug\adventofcode.exe
+C:\Users\user6624\source\repos\adventofcode\adventofcode\bin\Debug\adventofcode.pdb
+C:\Users\user6624\source\repos\adventofcode\adventofcode\obj\Debug\adventofcode.csprojAssemblyReference.cache
+C:\Users\user6624\source\repos\adventofcode\adventofcode\obj\Debug\adventofcode.csproj.CoreCompileInputs.cache
+C:\Users\user6624\source\repos\adventofcode\adventofcode\obj\Debug\adventofcode.exe
+C:\Users\user6624\source\repos\adventofcode\adventofcode\obj\Debug\adventofcode.pdb
