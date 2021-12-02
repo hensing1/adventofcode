@@ -19,14 +19,14 @@ namespace adventofcode
             if (args.Length < 3 || args.Length > 4)
                 Exit("Required args: \n\t[year] [day] [puzzle number (1 or 2)] [Input file name (optional, must be contained in folder corresponding with # of Day)]", -1);
 
-            var year = int.Parse(args[0]);
-            var day = int.Parse(args[1]);
-            var numOfPuzzle = int.Parse(args[2]);
-
             if (args[0].Length == 2)
                 args[0] = "20" + args[0];
             if (args[1].Length == 1)
                 args[1] = '0' + args[1];
+
+            var year = int.Parse(args[0]);
+            var day = int.Parse(args[1]);
+            var numOfPuzzle = int.Parse(args[2]);
 
             var path = 
                 args.Length == 4 ? 
