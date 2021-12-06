@@ -1,5 +1,4 @@
-﻿using System;
-using adventofcode.Utility;
+﻿using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
 namespace adventofcode._2021._02
