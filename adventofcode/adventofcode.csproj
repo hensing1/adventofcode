@@ -125,6 +125,11 @@
     <Compile Include="2021\01\Solver.cs" />
     <Content Include="2021\02\input.txt" />
     <Content Include="2021\01\input.txt" />
+    <Content Include="2021\03\input.txt" />
+    <Compile Include="2021\03\Solver.cs" />
+    <Content Include="2021\03\test.txt" />
+    <Compile Include="2021\04\Solver.cs" />
+    <Content Include="2021\04\input.txt" />
     <Content Include="Utility\SolverTemplate.txt" />
   </ItemGroup>
   <ItemGroup />

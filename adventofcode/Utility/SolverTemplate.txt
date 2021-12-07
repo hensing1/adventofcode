@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _2020.Utility;
-using static _2020.Utility.Attributes;
+using adventofcode.Utility;
+using static adventofcode.Utility.Attributes;
 
-namespace _2020.days._0
+namespace adventofcode._2021._
 {
-    [ProblemDate(0)]
+    [ProblemDate(2021, )]
     class Solver : ISolver
     {
         public string SolveFirst(string input)
