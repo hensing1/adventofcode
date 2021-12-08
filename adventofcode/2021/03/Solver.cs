@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
@@ -15,10 +13,8 @@ namespace adventofcode._2021._03
         {
             string[] lines = System.IO.File.ReadAllLines(input);
 
-            int[] report = new int[lines.Length];
+            int[] report = Array.ConvertAll(lines, line => Convert.ToInt32(line, 2));
             int numBits = lines[0].Length;
-            for (int i = 0; i < lines.Length; i++)
-                report[i] = Convert.ToInt32(lines[i], 2);
 
             int mask = 1;
             int gammaRate = 0;
@@ -46,9 +42,7 @@ namespace adventofcode._2021._03
             string[] lines = System.IO.File.ReadAllLines(input);
             int numBits = lines[0].Length;
 
-            var oxygenReport = new List<int>();
-            for (int i = 0; i < lines.Length; i++)
-                oxygenReport.Add(Convert.ToInt32(lines[i], 2));
+            List<int> oxygenReport = lines.Select(line => Convert.ToInt32(line, 2)).ToList();
             var co2Report = new List<int>(oxygenReport);
 
             int mask = 1 << (numBits - 1);

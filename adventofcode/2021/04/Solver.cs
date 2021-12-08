@@ -56,7 +56,7 @@ namespace adventofcode._2021._04
         {
             string[] lines = System.IO.File.ReadAllLines(input);
 
-            luckyNumbers = lines[0].Split(',').SelectMany(num => new[] { int.Parse(num) }).ToArray();
+            luckyNumbers = Array.ConvertAll(lines[0].Split(','), line => int.Parse(line)); 
 
             boards = new List<int[][]>();
             for (int i = 2; i < lines.Length; i += 6)
