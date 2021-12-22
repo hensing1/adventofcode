@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "adventofcode": {
+      "commandName": "Project",
+      "commandLineArgs": "21 11 1"
+    }
+  }
+}
