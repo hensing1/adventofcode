@@ -14,12 +14,12 @@ namespace adventofcode
         {
             string rootDirectory;
 
-            // figure out if program is being run from command line, or from within Visual Studio
+            // figure out if program is being run from within Visual Studio, or from command line
             DirectoryInfo rootInfo = new(Environment.CurrentDirectory);
-            if (rootInfo.Name == "adventofcode")
-                rootDirectory = rootInfo.FullName;
-            else
+            if (rootInfo.Parent.Parent.Name == "bin")
                 rootDirectory = rootInfo.Parent.Parent.Parent.FullName; // VS runs program from adventofcode/bin/Debug/net5.0/ or something
+            else
+                rootDirectory = rootInfo.FullName;
 
             if (args.Length < 3 || args.Length > 4)
                 Exit("Required args: \n\t[year] [day] [puzzle number (1 or 2)] [Input file name (optional, must be contained in folder corresponding with # of Day)]", -1);
