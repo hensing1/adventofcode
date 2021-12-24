@@ -2,7 +2,7 @@
 
 ----------
 
-## Usage
+## Usage (Linux/Windows/macOS)
 
 Prerequisites: installation of .NET 5.0 (or higher)
 
@@ -22,4 +22,9 @@ Solution: 258
 Time elapsed: 6ms
 Press enter to exit.
 ```
+
+If you're on windows, you can also just clone this into Visual Studio and specify the command line arguments there.
+
+----------
+
 By default, the program reads from `/[year]/[day]/input.txt`. You can specify your own puzzle input by adding a file in the corresponding directory and referencing it as a command line argument.
