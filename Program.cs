@@ -10,10 +10,17 @@ namespace adventofcode
 {
     class Program
     {
-        static readonly string Root = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-
         static void Main(string[] args)
         {
+            string rootDirectory;
+
+            // figure out if program is being run from command line, or from within Visual Studio
+            DirectoryInfo rootInfo = new(Environment.CurrentDirectory);
+            if (rootInfo.Name == "adventofcode")
+                rootDirectory = rootInfo.FullName;
+            else
+                rootDirectory = rootInfo.Parent.Parent.Parent.FullName; // VS runs program from adventofcode/bin/Debug/net5.0/ or something
+
             if (args.Length < 3 || args.Length > 4)
                 Exit("Required args: \n\t[year] [day] [puzzle number (1 or 2)] [Input file name (optional, must be contained in folder corresponding with # of Day)]", -1);
 
@@ -28,8 +35,8 @@ namespace adventofcode
 
             var path = 
                 args.Length == 4 ? 
-                    Path.Combine(Root, args[0], args[1], args[3]) :
-                    Path.Combine(Root, args[0], args[1], "input.txt");
+                    Path.Combine(rootDirectory, args[0], args[1], args[3]) :
+                    Path.Combine(rootDirectory, args[0], args[1], "input.txt");
 
             if (!File.Exists(path))
                 Exit($"File '{path}' does not exist", -1);
