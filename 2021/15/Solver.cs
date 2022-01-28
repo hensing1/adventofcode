@@ -90,6 +90,8 @@ namespace adventofcode._2021._15
 
         private void InsertOdered(List<Node> priorityQueue, Node newNode)
         {
+            // on one hand, one could utilize some binary search here and speed things up quite a bit.
+            // on the other hand, premature optimization is the root of all evil
             for (int i = 0; i < priorityQueue.Count; i++)
             {
                 if (newNode.Distance <= priorityQueue[i].Distance)
