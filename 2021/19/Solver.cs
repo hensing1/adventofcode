@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
@@ -32,8 +30,15 @@ namespace adventofcode._2021._19
 
         public string SolveSecond(string input)
         {
-            string[] lines = System.IO.File.ReadAllLines(input);
-            throw new NotImplementedException();
+            List<ScannerReport> reportList = ParseInput(input);
+            Assemble(reportList);
+
+            int maxDistance = 0;
+            for (int i = 0; i < reportList.Count; i++)
+                for (int j = i + 1; j < reportList.Count; j++)
+                    maxDistance = Math.Max(maxDistance, ManhattenDistance(reportList[i].ScannerCoordinates, reportList[j].ScannerCoordinates));
+
+            return maxDistance.ToString();
         }
 
         private List<ScannerReport> ParseInput(string input)
@@ -137,7 +142,17 @@ namespace adventofcode._2021._19
 
             float diag1 = (float)Math.Sqrt(d.X * d.X + d.Y * d.Y);
             float diag2 = (float)Math.Sqrt(diag1 * diag1 + d.Z * d.Z);
-            return diag2;
+
+            return (float)Math.Round(diag2, 3);
+        }
+
+        private int ManhattenDistance(Coords point1, Coords point2)
+        {
+            int dx = Math.Abs(point1.X - point2.X);
+            int dy = Math.Abs(point1.Y - point2.Y);
+            int dz = Math.Abs(point1.Z - point2.Z);
+
+            return dx + dy + dz;
         }
 
         private bool TryFindOverlap(ScannerReport currentReport, ScannerReport newReport, out Coords[] beaconsOfCurrent, out Coords[] correspondingBeaconsOfNew)
@@ -324,7 +339,7 @@ namespace adventofcode._2021._19
         private enum Axis { X, Y, Z }
         private enum Direction { Forward, Backward }
 
-        private const int RequiredOverlaps = 6;
+        private const int RequiredOverlaps = 12;
         private static readonly Orientation StandardOrientation = new()
         {
             Axis = Axis.X,
