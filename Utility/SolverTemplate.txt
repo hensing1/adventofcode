@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
-namespace adventofcode._2021._
+namespace adventofcode._2021._&1
 {
-    [ProblemDate(2021, )]
+    [ProblemDate(2021, &1)]
     class Solver : ISolver
     {
         public string SolveFirst(string input)
