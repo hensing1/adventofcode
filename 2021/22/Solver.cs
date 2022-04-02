@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using adventofcode.Utility;
 using static adventofcode.Utility.Attributes;
 
@@ -23,8 +20,11 @@ namespace adventofcode._2021._22
 
         public string SolveSecond(string input)
         {
-            string[] lines = System.IO.File.ReadAllLines(input);
-            throw new NotImplementedException();
+            State[] instructions = ParseInput(input, false);
+
+            List<State> activeCubes = ExecuteInstructions(instructions);
+
+            return GetTotalCubeCount(activeCubes).ToString();
         }
 
         private State[] ParseInput(string input, bool ignoreBigValues = true)
@@ -32,10 +32,11 @@ namespace adventofcode._2021._22
             var instructions = new List<State>();
             string[] lines = System.IO.File.ReadAllLines(input);
 
+            var regex = new Regex(@"^(?<activation>on|off) x=(?<xLower>-?\d+)..(?<xUpper>-?\d+),y=(?<yLower>-?\d+)..(?<yUpper>-?\d+),z=(?<zLower>-?\d+)..(?<zUpper>-?\d+)$");
+            
             foreach (string line in lines)
             {
-                Match match = Regex.Match(line, 
-                    @"^(?<activation>on|off) x=(?<xLower>-?\d+)..(?<xUpper>-?\d+),y=(?<yLower>-?\d+)..(?<yUpper>-?\d+),z=(?<zLower>-?\d+)..(?<zUpper>-?\d+)$");
+                var match = regex.Match(line);
 
                 var newInstruction = new State
                 {
@@ -81,8 +82,8 @@ namespace adventofcode._2021._22
                 for (int j = 0; j < toBeRemoved.Count; j++)
                     activeCubes.Remove(toBeRemoved[j]);
 
-                Console.Write("Active Cubes: ");
-                Console.WriteLine(GetTotalCubeCount(activeCubes));
+                //Console.Write("Active Cubes: ");
+                //Console.WriteLine(GetTotalCubeCount(activeCubes));
             }
 
             return activeCubes;
@@ -99,10 +100,13 @@ namespace adventofcode._2021._22
         private bool HasOverlap(State state1, State state2)
         {
             return
-                (IsInRange(state1.X.Lower, state2.X) || IsInRange(state1.X.Upper, state2.X)) &&
-                (IsInRange(state1.Y.Lower, state2.Y) || IsInRange(state1.Y.Upper, state2.Y)) &&
-                (IsInRange(state1.Z.Lower, state2.Z) || IsInRange(state1.Z.Upper, state2.Z));
+                RangesOverlap(state1.X, state2.X) &&
+                RangesOverlap(state1.Y, state2.Y) &&
+                RangesOverlap(state1.Z, state2.Z);
         }
+
+        private bool RangesOverlap((int Lower, int Upper) range1, (int Lower, int Upper) range2) =>
+                IsInRange(range1.Lower, range2) || IsInRange(range1.Upper, range2) || IsInRange(range2.Upper, range1);
 
         private List<State> SplitCuboid(State toBeSplit, State newState)
         {
@@ -153,7 +157,7 @@ namespace adventofcode._2021._22
                     Z = (toBeSplit.Z.Lower, newState.Z.Lower - 1)
                 });
             }
-            if (IsInRange(newState.X.Upper, toBeSplit.X, includeUpper: false)) // back face
+            if (IsInRange(newState.Z.Upper, toBeSplit.Z, includeUpper: false)) // back face
             {
                 fragments.Add(new State
                 {
@@ -177,9 +181,9 @@ namespace adventofcode._2021._22
         private long NumCubes(State cuboid)
         {
             return
-                (cuboid.X.Upper + 1 - cuboid.X.Lower) *
-                (cuboid.Y.Upper + 1 - cuboid.Y.Lower) *
-                (cuboid.Z.Upper + 1 - cuboid.Z.Lower);
+                ((long)cuboid.X.Upper + 1 - cuboid.X.Lower) *
+                ((long)cuboid.Y.Upper + 1 - cuboid.Y.Lower) *
+                ((long)cuboid.Z.Upper + 1 - cuboid.Z.Lower);
         }
 
         private bool IsInRange(int val, (int Lower, int Upper) range, bool includeLower = true, bool includeUpper = true)
