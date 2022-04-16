@@ -1,4 +1,4 @@
-### C# solutions to the `adventofcode` puzzles from 2020 and 2021, posted at [adventofcode.com](https://adventofcode.com)
+### C# solutions to the `Advent of Code` puzzles from 2020 and 2021, posted at [adventofcode.com](https://adventofcode.com)
 
 ----------
 
@@ -13,13 +13,13 @@ Prerequisites: installation of .NET 5.0 (or higher)
 
 Example (second puzzle from day 11 in 2021): 
 ```
-C:\Users\henry-dv\c#\adventofcode>dotnet run 2021 11 2
+C:\Users\henry-dv\c#\adventofcode>dotnet run 2021 1 1
 
 Getting solver instance...
 Calculating...
 
-Solution: 258
-Time elapsed: 6ms
+Solution: 1711
+Time elapsed: 2ms
 Press enter to exit.
 ```
 
