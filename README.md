@@ -1,4 +1,4 @@
-### C# solutions to the `Advent of Code` puzzles from 2020 and 2021, posted at [adventofcode.com](https://adventofcode.com)
+### C# solutions to the [Advent of Code](https://adventofcode.com) puzzles from 2020 and 2021
 
 ----------
 
